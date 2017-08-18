@@ -1,0 +1,53 @@
+<%= form_with(model: club, local: true) do |form| %>
+  <% if club.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(club.errors.count, "error") %> prohibited this club from being saved:</h2>
+
+      <ul>
+      <% club.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <form>
+    <div class="form-group">
+      <%= form.label :name, '동아리이름' %>
+      <%= form.text_field :name, id: :club_name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :category1, '동아리 지역' %>
+      <%= form.text_field :category1, id: :club_category1, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :category2, '대학교' %>
+      <%= form.text_field :category2, id: :club_category2, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :category3, '분야-대분류' %>
+      <%= form.text_field :category3, id: :club_category3, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :category4, '분야-소분류' %>
+      <%= form.text_field :category4, id: :club_category4, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :img, '이미지첨부' %>
+      <%= form.text_field :img, id: :club_img, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :intro, '동아리소개' %>
+      <%= form.text_field :intro, id: :club_intro, class: "form-control" %>
+    </div>
+
+    
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  </form>
+  
+<% end %>
+
+
+

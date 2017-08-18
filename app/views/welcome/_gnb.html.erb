@@ -1,0 +1,46 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="row" style="width: 100%;">
+    <div class="col-md-2">
+      <a class="navbar-brand" href="/">
+        <img src="/assets/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        동시
+      </a>
+    </div>
+    
+    <div class="collapse navbar-collapse col-md-9" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active mr-5">
+          <form class="form-inline my-2 my-lg-0">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="검색하고 싶은 내용이 있나요?" style="width:500px;">
+              <span class="input-group-btn">
+                <button class="btn btn-secondary" type="button">검색</button>
+              </span>
+            </div>
+          </form>
+        </li>
+        <li class="nav-item dropdown mr-4">
+          <img src="/assets/filter.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="/assets/user.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <% if user_signed_in? %>
+              <%= link_to "로그아웃", destroy_user_session_path, class: "dropdown-item", method: :DELETE %>
+            <% else %>
+              <%= link_to "로그인", new_user_session_path, class: "dropdown-item" %>
+              <%= link_to "회원가입", new_user_registration_path, class: "dropdown-item" %>
+            <% end %>
+            
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

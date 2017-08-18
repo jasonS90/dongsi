@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-2">
+      <section class="club-list">
+      <% @myclubs.each do |m| %>
+
+          <a href="/clubs/<%= m.club.id %>" class="btn btn-primary ml-4 mt-3" style="width: 90%;"><%= m.club.name %></a>
+
+      <% end %>
+      </section>
+    </div>
+     <div class="col-6">
+      <section class="history">
+        <div class="his-card">
+          <div class="card mb-3">
+            <div class="card-block">
+              <img src="/assets/dongsi_logo.png" style="width: 100%;" alt="">
+              <h4 class="card-title"><%= @club.name %>
+              <a href="#" id="writebutton" style="float: right;" onclick="document.getElementById('clickform').style.display='block'; document.getElementById('writebutton').style.display='none'; document.getElementById('writebutton2').style.display='block'; return false;">글쓰기</a>
+              <a href="#" id="writebutton2" style="float: right; display: none;" onclick="document.getElementById('clickform').style.display='none'; document.getElementById('writebutton').style.display='block'; document.getElementById('writebutton2').style.display='none'; return false;">접기</a><hr><img src="/assets/follow.jpg" width="30" height="30"></h4>
+              <span class="badge badge-default"><%= @club.category1 %></span> <span class="badge badge-warning"><%= @club.category2 %></span> <br>
+              <span class="badge badge-info"><%= @club.category3 %></span> <span class="badge badge-warning"><%= @club.category4 %></span>
+            </div>
+                
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">모집상태: <span class="badge badge-success">모집 중</span> <hr> 지원자격: 강원도 전체 모든 학생 언제나 지원가능</li>
+                <li class="list-group-item"><%= @club.intro %></li>
+                <li class="list-group-item" id="clickform" style="display: none;"><%= render "posts/form" %></li>
+                <li class="list-group-item"><%= render "posts/post" %></li>
+              </ul>
+
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="col-3">
+      <section class="notice">
+        <div class="card" style="width: 20rem;">
+         
+          <div class="card-block">
+            <h4 class="card-title">동시동아리</h4>
+            <p class="card-text">공지사항</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">다음주부터 모집 시작합니다</li>
+
+          </ul>
+
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+<%= link_to 'Edit', edit_club_path(@club) %> |
+<%= link_to 'Back', clubs_path %>
+
+<h2>글목록</h2>
+
+
